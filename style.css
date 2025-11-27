@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Quicksand",sans-serif;
+}
+
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  background:#070707;
+  overflow:hidden;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:conic-gradient(#ff2a6d,#ffe100,#00ffd5,#00ff15,#3f00ff,#ff2a6d);
+  animation:bgRotate 18s linear infinite;
+  filter:blur(120px);
+  opacity:0.25;
+}
+
+@keyframes bgRotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.ring{
+  position:relative;
+  width:480px;
+  height:480px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.ring i{
+  position:absolute;
+  inset:0;
+  border:3px solid #ffffff;
+  border-radius:50%;
+  filter:drop-shadow(0 0 15px var(--clr));
+  animation:rotate var(--speed) linear infinite;
+  transition:0.5s;
+}
+
+.ring i:nth-child(1){
+  --clr:#00ff15;
+  --speed:6s;
+  border-radius:45% 55% 60% 40%/40% 40% 60% 60%;
+}
+
+.ring i:nth-child(2){
+  --clr:#ff0099;
+  --speed:10s;
+  border-radius:55% 45% 40% 60%/50% 60% 40% 50%;
+}
+
+.ring i:nth-child(3){
+  --clr:#ffe600;
+  --speed:14s;
+  border-radius:50% 50% 30% 70%/55% 45% 55% 45%;
+}
+
+@keyframes rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.ring:hover i{
+  border:6px solid var(--clr);
+  filter:drop-shadow(0 0 30px var(--clr));
+  transform:scale(1.08);
+}
+
+.login{
+  position:absolute;
+  width:300px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:center;
+  transform:translateY(10px);
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(10px);}
+  50%{transform:translateY(-10px);}
+}
+
+.login h2{
+  color:#fff;
+  margin-bottom:5px;
+  text-shadow:0 0 15px #00ffe7;
+}
+
+.inputBx{
+  width:100%;
+  position:relative;
+}
+
+.inputBx input{
+  width:100%;
+  padding:12px 20px;
+  background:rgba(255,255,255,0.08);
+  border:2px solid rgba(255,255,255,0.5);
+  border-radius:40px;
+  outline:none;
+  color:#fff;
+  font-size:1.1em;
+  transition:0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.inputBx input:focus{
+  border-color:#0ff;
+  box-shadow:0 0 15px #00f0ff;
+}
+
+
+.inputBx input[type="submit"]{
+  background:linear-gradient(45deg,#ff2a6d,#ffe600,#00ffea);
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+.inputBx input[type="submit"]:hover{
+  filter:drop-shadow(0 0 15px #00ffea);
+  transform:scale(1.05);
+}
+
+.links{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+}
+
+.links a{
+  color:#fff;
+  text-decoration:none;
+  font-size:0.9em;
+  transition:0.3s;
+}
+
+.links a:hover{
+  color:#00ffe7;
+  text-shadow:0 0 10px #00ffe7;
+}
